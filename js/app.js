@@ -218,7 +218,12 @@ function clearFilters() {
 
 /* ---------- Add / Edit / Enable-Disable ---------- */
 
+// Remembers which button opened the modal, so focus can return there when it closes
+// (Bootstrap otherwise leaves focus on the now-hidden modal, stranding keyboard users).
+let modalTrigger = null;
+
 function openUserModal(user) {
+  modalTrigger = document.activeElement;
   els.form.classList.remove("was-validated");
   els.email.setCustomValidity("");
   els.modalTitle.textContent = user ? "Edit User" : "Add User";
@@ -305,6 +310,7 @@ $("clearFilters").addEventListener("click", clearFilters);
 $("addUserBtn").addEventListener("click", () => openUserModal(null));
 els.form.addEventListener("submit", saveUser);
 els.email.addEventListener("input", () => els.email.setCustomValidity(""));
+$("userModal").addEventListener("hidden.bs.modal", () => modalTrigger && modalTrigger.focus());
 
 els.body.addEventListener("click", (e) => {
   const btn = e.target.closest("button[data-action]");

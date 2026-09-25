@@ -10,7 +10,7 @@
   --blue: #2a72b5;          /* sidebar icons, active page number, links */
   --blue-soft: #cfe0f1;     /* "User management" parent row */
   --blue-softer: #dde9f5;   /* active "Edit Users" row */
-  --teal: #08897a;          /* Add User / Filters (darkened slightly so white text passes AA) */
+  --teal: #077f71;          /* Add User (darkened so white text clears WCAG AA 4.5:1) */
   --teal-dark: #06705f;
   --text: #1f2933;
   --muted: #5f6b76;
@@ -163,8 +163,8 @@ body {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--teal); border: 1px solid var(--teal); color: #fff; font-weight: 500;
 }
-/* Filters pill: lighter teal, closer to the reference (#55cdbf) while keeping white text readable */
-.btn-filters { background: #1f9f8f; border-color: #1f9f8f; }
+/* Filters pill: lighter teal than Add User, still >= 4.5:1 contrast with white text */
+.btn-filters { background: #18796d; border-color: #18796d; }
 .btn-add { padding: 0.35rem 1.15rem; border-radius: 4px; font-size: 0.875rem; height: 36px; }
 .btn-add .icon { width: 19px; height: 19px; color: var(--teal); }
 .btn-filters { border-radius: 999px; padding: 0.2rem 1rem 0.2rem 0.8rem; font-size: 0.8125rem; height: 28px; }
